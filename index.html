@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIA-WANG'S PORTFOLIO · 儿童内容创作作品集</title>
+  <meta name="description" content="MIA-WANG 儿童内容创作者作品集：AI早教动画、活动、绘本、实拍视频。">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/design-tokens.js"></script>
+</head>
+<body>
+
+  <!-- ===================== 顶部：Banner + Logo + 一级菜单 ===================== -->
+  <header class="site-header">
+    <img class="site-banner" src="assets/design/banner.png" alt="MIA-WANG'S PORTFOLIO 横幅">
+    <h1 class="site-logo">MIA-WANG’S&nbsp;PORTFOLIO</h1>
+    <p class="site-intro" id="heroRole"></p>
+    <p class="site-intro tagline-badge" id="heroTagline"></p>
+    <nav class="site-nav" aria-label="作品分类">
+      <button type="button" class="active" data-view="animations">AI早教动画</button>
+      <button type="button" data-view="activities">活动</button>
+      <button type="button" data-view="books">绘本</button>
+      <button type="button" data-view="videos">实拍视频</button>
+      <button type="button" data-view="others">其他</button>
+      <button type="button" data-view="about">About</button>
+      <button type="button" data-view="contact">Contact</button>
+    </nav>
+  </header>
+
+  <!-- ===================== 作品内容区：由 js/main.js 渲染当前分类 ===================== -->
+  <main id="worksRoot" aria-live="polite"></main>
+
+  <footer class="site-footer">
+    <img class="footer-person" src="assets/design/footer-person.png" alt="手绘小人">
+    <svg class="footer-line" viewBox="0 0 1200 28" preserveAspectRatio="none" aria-hidden="true">
+      <filter id="roughLine">
+        <feTurbulence type="fractalNoise" baseFrequency="0.015 0.30" numOctaves="2" result="n"/>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="5"/>
+      </filter>
+      <path d="M0 16 Q 45 8 90 16 T 180 15 T 270 17 T 360 14 T 450 16 T 540 15 T 630 17 T 720 14 T 810 16 T 900 15 T 990 17 T 1080 14 T 1170 16 L 1200 16"
+        fill="none" stroke="#C02020" stroke-width="3.4" stroke-linecap="round" filter="url(#roughLine)"/>
+    </svg>
+    <p>© <span id="footerYear"></span> <span id="footerName">MIA-WANG</span> · 用心为孩子创作</p>
+  </footer>
+
+  <!-- ===================== 绘本翻书弹窗 ===================== -->
+  <div class="book-modal" id="bookModal" aria-hidden="true">
+    <div class="book-modal-backdrop" data-book-close></div>
+    <div class="book-modal-panel" role="dialog" aria-modal="true" aria-label="绘本阅读器">
+      <button class="book-close" type="button" data-book-close aria-label="关闭">×</button>
+      <h3 class="book-modal-title" id="bookModalTitle"></h3>
+      <p class="book-modal-loading" id="bookLoading">正在翻开书页…</p>
+      <div class="book-frame" id="bookFrame">
+        <div class="reader" id="bookStage"></div>
+      </div>
+      <p class="book-hint">点击书页左右两侧翻页，也可以用 ← → 方向键</p>
+      <div class="book-controls">
+        <button class="book-btn" type="button" id="bookPrev">← 上一页</button>
+        <span class="book-page-num" id="bookPageNum"></span>
+        <button class="book-btn" type="button" id="bookNext">下一页 →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== 图片放大灯箱 ===================== -->
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-backdrop" data-lightbox-close></div>
+    <div class="lightbox-content">
+      <button class="lightbox-close" type="button" data-lightbox-close aria-label="关闭">×</button>
+      <img id="lightboxImg" alt="放大查看">
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+    </div>
+  </div>
+
+  <noscript>
+    <p style="padding:1rem;text-align:center">这个作品集需要启用 JavaScript 才能显示完整内容。</p>
+  </noscript>
+
+  <script src="js/works.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
