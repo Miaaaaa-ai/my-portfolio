@@ -42,11 +42,17 @@ const WORKS = {
   activities: [
     {
       title: "01",
-      photos: Array.from({ length: 3 }, (_, i) => `assets/activities/1/${String(i + 1).padStart(2, "0")}.jpg`)
+      photos: Array.from({ length: 3 }, (_, i) => `assets/activities/1/${String(i + 1).padStart(2, "0")}.jpg`),
+      links: [
+        { label: "微信推文 01", url: "https://mp.weixin.qq.com/s/9GyDfa3fKLaxYa5j_v5ujA" }
+      ]
     },
     {
       title: "02",
-      photos: Array.from({ length: 18 }, (_, i) => `assets/activities/2/${String(i + 1).padStart(2, "0")}.jpg`)
+      photos: Array.from({ length: 18 }, (_, i) => `assets/activities/2/${String(i + 1).padStart(2, "0")}.jpg`),
+      links: [
+        { label: "微信推文 01", url: "https://mp.weixin.qq.com/s/Tkk5IMgCyz4n7eqwssakCw" }
+      ]
     },
     {
       title: "03",

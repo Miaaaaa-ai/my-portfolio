@@ -91,7 +91,7 @@
         </div>
         <div class="activity-grid">
           ${group.photos.map((src, i) => `
-            <figure class="activity-photo" data-full="${esc(src)}" data-caption="${esc(`${group.title} · ${String(i + 1).padStart(2, "0")}`)}">
+            <figure class="activity-photo">
               <img src="${esc(src)}" alt="${esc(`${group.title} 活动照片 ${i + 1}`)}" loading="lazy">
             </figure>`).join("")}
         </div>
