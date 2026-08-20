@@ -240,6 +240,7 @@ const WORKS = {
         "assets/books/wangkuaikuai/6.jpg",
         "assets/books/wangkuaikuai/7.jpg",
         "assets/books/wangkuaikuai/8.jpg",
+        "assets/books/wangkuaikuai/9.jpg",
         "assets/books/wangkuaikuai/10.jpg"
       ],
       desc: ""
