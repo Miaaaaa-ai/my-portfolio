@@ -80,7 +80,11 @@
 
   /* ---------- 活动：按 1-4 分组，每组瀑布流平铺，点击放大 ---------- */
   function activitiesView() {
-    return WORKS.activities.map((group) => `
+    const colCount = window.innerWidth < 560 ? 2 : window.innerWidth < 960 ? 4 : 5;
+    return WORKS.activities.map((group) => {
+      const columns = Array.from({ length: colCount }, () => []);
+      group.photos.forEach((src, i) => columns[i % colCount].push(src));
+      return `
       <div class="activity-group">
         <div class="activity-group-head">
           <h3 class="activity-group-title">${esc(group.title)}</h3>
@@ -90,12 +94,16 @@
           </div>` : ""}
         </div>
         <div class="activity-grid">
-          ${group.photos.map((src, i) => `
-            <figure class="activity-photo">
-              <img src="${esc(src)}" alt="${esc(`${group.title} 活动照片 ${i + 1}`)}" loading="lazy">
-            </figure>`).join("")}
+          ${columns.map((col) => `
+            <div class="activity-col">
+              ${col.map((src, j) => `
+                <figure class="activity-photo">
+                  <img src="${esc(src)}" alt="${esc(`${group.title} 活动照片`)}" loading="lazy">
+                </figure>`).join("")}
+            </div>`).join("")}
         </div>
-      </div>`).join("");
+      </div>`;
+    }).join("");
   }
 
   /* ---------- 其他：图片 / 视频混排 ---------- */
